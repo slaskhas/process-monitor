@@ -20,6 +20,9 @@ PROGRAM_MANS = $(PROGRAMS:=.1)
 CFLAGS = -Wall -Werror -g
 LDFLAGS = -lutil
 
+process-monitor: $(PM_OBJS)
+	$(CC) $(CFLAGS) $(PM_OBJS) -o $(PM) $(LDFLAGS)
+
 # Create the man page from perl POD format.
 %.1: %.pod
 	pod2man --center="User Commands" --release="User Commands" $< $@
